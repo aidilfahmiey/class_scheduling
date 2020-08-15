@@ -9,6 +9,7 @@
 
 ## Algorithms
 * FCFS - fcfs.cpp
+* SJF - sjf.cpp
 
 ## How to compile on Windows
 1. Make sure you have g++ compiler installed in your computer.
