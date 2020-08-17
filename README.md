@@ -10,6 +10,7 @@
 ## Algorithms
 * FCFS - fcfs.cpp
 * SJF - sjf.cpp
+* Priority - priority.cpp
 
 ## How to compile on Windows
 1. Make sure you have g++ compiler installed in your computer.
@@ -22,4 +23,4 @@ g++ -o fcfs fcfs.cpp
 ```
 fcfs.exe
 ```
-5. To compile another cpp files, follow the same previous step with different filename
+5. To compile another cpp files, follow the same previous steps with different filename

@@ -1,4 +1,4 @@
-// First Come First Serve (FCFS) algorithm
+// Priority scheduling algorithm
 
 #include <iostream>
 using namespace std;
@@ -16,7 +16,7 @@ float getAverageTurnAroundTime(Process proc[], int length, int order[]){
     float total = 0.0;
     float average = 0.0;
     for(int i = 0 ; i<length ; i++){
-        int burstTime = proc[i].duration;
+        int burstTime = proc[order[i]].duration;
         total += burstTime + waitingTime;
         waitingTime += burstTime;
     }
@@ -28,7 +28,7 @@ float getAverageWaitingTime(Process proc[], int length, int order[]){
     float average = 0.0;
     float total = 0.0;
     for(int i = 0 ; i<length-1 ; i++){
-        total += proc[i].duration;
+        total += proc[order[i]].duration;
     }
     average = total/(float)length;
     return average;
@@ -37,7 +37,7 @@ float getAverageWaitingTime(Process proc[], int length, int order[]){
 void getOrder(Process proc[], int length, int order[]){
     for(int i = 0 ; i<length ; i++){
         for(int j = 0 ; j<length ; j++){
-            if(proc[i].arrival_time > proc[j].arrival_time){
+            if(proc[i].priority < proc[j].priority){
                 order[i]++;
             }
         }
@@ -57,6 +57,4 @@ int main(){
     }
     cout << "\nAverage waiting time: " << getAverageWaitingTime(proc, length, order);
     cout << "\nAverage turnaround time: " << getAverageTurnAroundTime(proc, length, order);
-
-    return 0;
 }
